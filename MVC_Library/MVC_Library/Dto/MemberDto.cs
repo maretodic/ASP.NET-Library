@@ -16,5 +16,6 @@ namespace MVC_Library.Dto
         public DateTime BirthDate { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
         public byte MembershipTypeID { get; set; }
+        public MembershipTypeDto MembershipType { get; set; }
     }
 }

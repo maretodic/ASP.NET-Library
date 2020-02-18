@@ -193,6 +193,7 @@
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Dto\BookDto.cs" />
     <Compile Include="Dto\MemberDto.cs" />
+    <Compile Include="Dto\MembershipTypeDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
