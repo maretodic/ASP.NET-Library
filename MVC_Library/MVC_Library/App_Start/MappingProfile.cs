@@ -13,8 +13,10 @@ namespace MVC_Library.App_Start
         public MappingProfile()
         {
             CreateMap<Member, MemberDto>();
+            CreateMap<Book, BookDto>();
 
             CreateMap<MemberDto, Member>().ForMember(m => m.ID, opt => opt.Ignore());
+            CreateMap<BookDto, Book>().ForMember(m => m.ID, opt => opt.Ignore());
         }
     }
 }

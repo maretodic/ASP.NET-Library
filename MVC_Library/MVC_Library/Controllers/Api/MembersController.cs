@@ -19,7 +19,7 @@ namespace MVC_Library.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        // GET api/members
+        // GET /api/members
         [HttpGet]
         public IHttpActionResult GetMembers()
         {
@@ -27,7 +27,7 @@ namespace MVC_Library.Controllers.Api
             return Ok(members);
         }
 
-        //GET api/members/1
+        //GET /api/members/1
         [HttpGet]
         public IHttpActionResult GetMember(int id)
         {
