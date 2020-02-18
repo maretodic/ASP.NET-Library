@@ -17,7 +17,7 @@
         @foreach(var member in Model)
         {
             <tr>
-               <td>@Html.ActionLink(member.Name, "Edit", "Customers", new { id = member.ID}, null)</td>
+               <td>@Html.ActionLink(member.Name, "Edit", "Members", new { id = member.ID}, null)</td>
                     <td>@member.MembershipType.Name</td>
                     <td>
                         <button data-customer-id="@member.ID" class="btn-link js-delete">

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using MVC_Library.Models;
+using MVC_Library.ViewModels;
 
 namespace MVC_Library.Controllers
 {
@@ -35,6 +36,63 @@ namespace MVC_Library.Controllers
                 return HttpNotFound();
             }
             return View(book);
+        }
+
+        public ViewResult New()
+        {
+            var genres = _context.Genres.ToList();
+            var vm = new BookFormViewModel
+            {
+                Genres = genres
+            };
+            return View("BookForm", vm);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var book = _context.Books.SingleOrDefault(b => b.ID == id);
+            if(book == null)
+            {
+                return HttpNotFound();
+            }
+
+            var vm = new BookFormViewModel(book)
+            {
+                Genres = _context.Genres.ToList()
+            };
+            return View("BookForm", vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Book book)
+        {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new BookFormViewModel
+                {
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MemberForm", viewModel);
+            }
+
+            if(book.ID == 0)
+            {
+                _context.Books.Add(book);
+            }
+            else
+            {
+                var bookInDb= _context.Books.SingleOrDefault(m => m.ID == book.ID);
+                bookInDb.Title = book.Title;
+                bookInDb.Author = book.Author;
+                bookInDb.ISBN = bookInDb.ISBN;
+                book.GenreID = book.GenreID;
+                book.NumberInStock = book.NumberInStock;
+
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
