@@ -24,7 +24,11 @@ namespace MVC_Library.Controllers
         // GET: Books
         public ViewResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageBooks))
+            {
+                return View("List");
+            }
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int id)
@@ -36,7 +40,7 @@ namespace MVC_Library.Controllers
             }
             return View(book);
         }
-
+        [Authorize(Roles = RoleName.CanManageBooks)]
         public ViewResult New()
         {
             var genres = _context.Genres.ToList();
@@ -47,6 +51,7 @@ namespace MVC_Library.Controllers
             return View("BookForm", vm);
         }
 
+        [Authorize(Roles = RoleName.CanManageBooks)]
         public ActionResult Edit(int id)
         {
             var book = _context.Books.SingleOrDefault(b => b.ID == id);
@@ -62,6 +67,7 @@ namespace MVC_Library.Controllers
             return View("BookForm", vm);
         }
 
+        [Authorize(Roles = RoleName.CanManageBooks)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Book book)

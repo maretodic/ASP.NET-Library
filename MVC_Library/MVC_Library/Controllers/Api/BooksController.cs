@@ -41,6 +41,7 @@ namespace MVC_Library.Controllers.Api
         }
 
         //POST /api/books
+        [Authorize(Roles = RoleName.CanManageBooks)]
         [HttpPost]
         public IHttpActionResult CreateBook(BookDto bookDto)
         {
@@ -56,6 +57,7 @@ namespace MVC_Library.Controllers.Api
         }
 
         //PUT /api/books/1
+        [Authorize(Roles = RoleName.CanManageBooks)]
         [HttpPut]
         public IHttpActionResult UpdateBook(int id, BookDto bookDto)
         {
@@ -76,6 +78,7 @@ namespace MVC_Library.Controllers.Api
         }
 
         //DELETE /api/books/1
+        [Authorize(Roles = RoleName.CanManageBooks)]
         [HttpDelete]
         public IHttpActionResult DeleteBook(int id)
         {
