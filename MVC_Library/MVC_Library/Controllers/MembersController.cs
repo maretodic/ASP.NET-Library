@@ -24,8 +24,8 @@ namespace MVC_Library.Controllers
         // GET: Members
         public ViewResult Index()
         {
-            var members = _context.Members.Include(m => m.MembershipType).ToList();
-            return View(members);
+            
+            return View();
         }
 
         public ActionResult Details(int id)
