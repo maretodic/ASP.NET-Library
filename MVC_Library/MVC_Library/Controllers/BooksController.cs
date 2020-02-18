@@ -24,8 +24,7 @@ namespace MVC_Library.Controllers
         // GET: Books
         public ViewResult Index()
         {
-            var books = _context.Books.Include(b => b.Genre).ToList();
-            return View(books);
+            return View();
         }
 
         public ActionResult Details(int id)
