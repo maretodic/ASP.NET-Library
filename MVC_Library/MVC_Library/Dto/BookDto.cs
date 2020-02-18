@@ -17,6 +17,7 @@ namespace MVC_Library.Dto
         public string Title { get; set; }
         [Required]
         public int GenreID { get; set; }
+        public GenreDto Genre { get; set; }
         [Required]
         [StringLength(13)]
         public string ISBN { get; set; }

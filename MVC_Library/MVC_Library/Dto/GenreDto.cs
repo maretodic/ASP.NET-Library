@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace MVC_Library.Models
+namespace MVC_Library.Dto
 {
-    public class Genre
+    public class GenreDto
     {
         public int ID { get; set; }
-        [Required]
         public string Name { get; set; }
     }
 }
