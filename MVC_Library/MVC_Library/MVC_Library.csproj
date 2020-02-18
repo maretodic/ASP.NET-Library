@@ -214,6 +214,10 @@
     <Compile Include="Migrations\202002181547159_SeedUsers.Designer.cs">
       <DependentUpon>202002181547159_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002181614223_SeedUserRolesFix.cs" />
+    <Compile Include="Migrations\202002181614223_SeedUserRolesFix.Designer.cs">
+      <DependentUpon>202002181614223_SeedUserRolesFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -222,6 +226,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BookFormViewModel.cs" />
@@ -558,6 +563,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002181547159_SeedUsers.resx">
       <DependentUpon>202002181547159_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002181614223_SeedUserRolesFix.resx">
+      <DependentUpon>202002181614223_SeedUserRolesFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
