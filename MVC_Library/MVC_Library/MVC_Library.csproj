@@ -183,6 +183,10 @@
     <Compile Include="Migrations\202002181012418_PopulateGenreAndMembershipTypes.Designer.cs">
       <DependentUpon>202002181012418_PopulateGenreAndMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002181013473_PopulateBooksAndMembers.cs" />
+    <Compile Include="Migrations\202002181013473_PopulateBooksAndMembers.Designer.cs">
+      <DependentUpon>202002181013473_PopulateBooksAndMembers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -276,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002181012418_PopulateGenreAndMembershipTypes.resx">
       <DependentUpon>202002181012418_PopulateGenreAndMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002181013473_PopulateBooksAndMembers.resx">
+      <DependentUpon>202002181013473_PopulateBooksAndMembers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
