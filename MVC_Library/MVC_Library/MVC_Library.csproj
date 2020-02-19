@@ -213,6 +213,7 @@
     <Compile Include="Dto\MemberDto.cs" />
     <Compile Include="Dto\MembershipTypeDto.cs" />
     <Compile Include="Dto\NewRentalDto.cs" />
+    <Compile Include="Dto\RentalDto.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
