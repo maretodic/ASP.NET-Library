@@ -203,6 +203,7 @@
     <Compile Include="Controllers\Api\BooksController.cs" />
     <Compile Include="Controllers\Api\MembersController.cs" />
     <Compile Include="Controllers\Api\NewRentalsController.cs" />
+    <Compile Include="Controllers\Api\RentalsController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -577,6 +578,7 @@
     <Content Include="Views\Members\MemberForm.cshtml" />
     <Content Include="Views\Books\ReadOnlyList.cshtml" />
     <Content Include="Views\Rentals\New.cshtml" />
+    <Content Include="Views\Rentals\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

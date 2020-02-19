@@ -1,0 +1,93 @@
+﻿@using MVC_Library.Models
+@model IEnumerable<MVC_Library.Models.Rental>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Rentals</h2>
+
+<table id="rentals" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Member</th>
+            <th>Book</th>
+            <th>Date Rented</th>
+            <th>Date Returned</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+
+@section scripts
+{
+    <script>$(document).ready(function() {
+            var table = $("#rentals").DataTable({
+                ajax: {
+                    url: "/api/rentals",
+                    dataSrc: ''
+                },
+                columns: [
+                    {
+                        data: "member.name"
+                    },
+                    {
+                        data: "book.title"
+                    },
+                    {
+                        data: "dateRented",
+                        render: function(data, type, row) {
+                            var dateSplit = data.split('-');
+                            var dateSplitTime = dateSplit[2].split("T");
+                            return type === "display" || type === "filter"
+                                ? dateSplit[1] + '-' + dateSplitTime[0] + '-' + dateSplit[0] + ' ' + dateSplitTime[1]
+                                : data;
+                        }
+                    },
+                    {
+                        data: "dateReturned",
+                        render: function(data, type, row) {
+                            if (data != null) {
+                                var dateSplit = data.split('-');
+                                var dateSplitTime = dateSplit[2].split("T");
+                                return type === "display" || type === "filter"
+                                    ? dateSplit[1] + '-' + dateSplitTime[0] + '-' + dateSplit[0] + ' ' + dateSplitTime[1]
+                                    : data;
+                            }
+                            return null;
+                        }
+                    },
+                    {
+                        data: "id",
+                        render: function(data, type, rental) {
+                            if (rental.dateReturned === null) {
+                                return "<button class='btn-link js-delete' data-rental-id=" + data + ">Return</button>";
+                            } else {
+                                return "<p class='text-success'>Returned</p>";
+                            }
+                        }
+                    }
+                ]
+            });
+
+            $("#rentals").on("click",
+                ".js-delete",
+                function() {
+                    var button = $(this);
+                    bootbox.confirm("Do you want to return this movie?",
+                        function(result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/rentals/returnRental/" + button.attr("data-rental-id"),
+                                    success: function() {
+                                        table.ajax.reload(); //datatables.net
+                                    }
+                                });
+                            }
+                        });
+                });
+        });</script>
+}
+
