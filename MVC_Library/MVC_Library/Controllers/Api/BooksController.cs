@@ -26,7 +26,7 @@ namespace MVC_Library.Controllers.Api
             var booksQuery = _context.Books.Include(b => b.Genre);
             if (!String.IsNullOrWhiteSpace(query))
             {
-                booksQuery = booksQuery.Where(b => b.Title.Contains(query));
+                booksQuery = booksQuery.Where(b => b.Title.Contains(query) && b.NumberAvailable > 0);
             }
             var booksDto = booksQuery.ToList().Select(Mapper.Map<Book, BookDto>);
             return Ok(booksDto);
