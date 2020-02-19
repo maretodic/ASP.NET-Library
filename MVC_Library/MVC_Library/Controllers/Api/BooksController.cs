@@ -21,10 +21,15 @@ namespace MVC_Library.Controllers.Api
 
         //GET /api/books
         [HttpGet]
-        public IHttpActionResult GetBooks()
+        public IHttpActionResult GetBooks(string query = null)
         {
-            var books = _context.Books.Include(b => b.Genre).ToList().Select(Mapper.Map<Book, BookDto>);
-            return Ok(books);
+            var booksQuery = _context.Books.Include(b => b.Genre);
+            if (!String.IsNullOrWhiteSpace(query))
+            {
+                booksQuery = booksQuery.Where(b => b.Title.Contains(query));
+            }
+            var booksDto = booksQuery.ToList().Select(Mapper.Map<Book, BookDto>);
+            return Ok(booksDto);
         }
 
         //GET /api/books/1

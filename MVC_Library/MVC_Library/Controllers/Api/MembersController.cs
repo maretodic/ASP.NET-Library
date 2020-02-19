@@ -21,10 +21,18 @@ namespace MVC_Library.Controllers.Api
 
         // GET /api/members
         [HttpGet]
-        public IHttpActionResult GetMembers()
+        public IHttpActionResult GetMembers(string query = null)
         {
-            var members = _context.Members.Include(m => m.MembershipType).ToList().Select(Mapper.Map<Member, MemberDto>);
-            return Ok(members);
+            var membersQuery = _context.Members
+                .Include(m => m.MembershipType);
+            if (!String.IsNullOrWhiteSpace(query))
+            {
+                membersQuery = membersQuery.Where(m => m.Name.Contains(query)); 
+            }
+
+            var membersDTo = membersQuery.ToList()
+                .Select(Mapper.Map<Member, MemberDto>);
+            return Ok(membersDTo);
         }
 
         //GET /api/members/1
