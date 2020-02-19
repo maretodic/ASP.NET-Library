@@ -83,6 +83,7 @@ namespace MVC_Library.Controllers
 
             if(book.ID == 0)
             {
+                book.NumberAvailable = book.NumberInStock;
                 _context.Books.Add(book);
             }
             else
@@ -93,6 +94,7 @@ namespace MVC_Library.Controllers
                 bookInDb.ISBN = bookInDb.ISBN;
                 book.GenreID = book.GenreID;
                 book.NumberInStock = book.NumberInStock;
+                book.NumberAvailable = book.NumberInStock;
 
             }
 

@@ -247,6 +247,14 @@
     <Compile Include="Migrations\202002190921485_BookNumberAvailable.Designer.cs">
       <DependentUpon>202002190921485_BookNumberAvailable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002191302580_RemovedBookNumberInStock.cs" />
+    <Compile Include="Migrations\202002191302580_RemovedBookNumberInStock.Designer.cs">
+      <DependentUpon>202002191302580_RemovedBookNumberInStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002191304103_AddedBooksNumberAvailable.cs" />
+    <Compile Include="Migrations\202002191304103_AddedBooksNumberAvailable.Designer.cs">
+      <DependentUpon>202002191304103_AddedBooksNumberAvailable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -617,6 +625,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002190921485_BookNumberAvailable.resx">
       <DependentUpon>202002190921485_BookNumberAvailable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002191302580_RemovedBookNumberInStock.resx">
+      <DependentUpon>202002191302580_RemovedBookNumberInStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002191304103_AddedBooksNumberAvailable.resx">
+      <DependentUpon>202002191304103_AddedBooksNumberAvailable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
