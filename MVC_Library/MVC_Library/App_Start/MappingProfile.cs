@@ -16,9 +16,10 @@ namespace MVC_Library.App_Start
             CreateMap<Book, BookDto>();
             CreateMap<MembershipType, MembershipTypeDto>();
             CreateMap<Genre, GenreDto>();
+            CreateMap<Rental, RentalDto>();
 
             CreateMap<MemberDto, Member>().ForMember(m => m.ID, opt => opt.Ignore());
-            CreateMap<BookDto, Book>().ForMember(m => m.ID, opt => opt.Ignore());
+            CreateMap<BookDto, Book>().ForMember(m => m.ID, opt => opt.Ignore()).ForMember(m => m.NumberAvailable, opt => opt.Ignore());
         }
     }
 }
