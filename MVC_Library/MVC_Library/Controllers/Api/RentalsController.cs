@@ -41,5 +41,16 @@ namespace MVC_Library.Controllers.Api
 
             return Ok(Mapper.Map<Rental, RentalDto>(rental));
         }
+
+        [HttpPut]
+        public IHttpActionResult UpdateRental(int id)
+        {
+            var rental = _context.Rentals.Include(r => r.Member).Include(r => r.Book).SingleOrDefault(r => r.ID == id);
+
+            rental.DateReturned = DateTime.Now;
+            rental.Book.NumberAvailable++;
+            _context.SaveChanges();
+            return Ok();
+        }
     }
 }
